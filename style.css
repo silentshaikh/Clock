@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #acbaca;
+     min-height: 100vh;
+}
+.clock{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #c9d5e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 30px 30px 30px -10px rgba(0, 0, 0, 0.15),
+    inset 15px 15px 10px rgba(225, 225, 225, 0.75),
+    -15px -15px 30px rgba(225, 225, 225, 0.55),
+    inset -1px -1px 10px rgba(0, 0, 0, 0.2);
+    top: 5px;
+}
+.watch h1{
+    text-align: center;
+    font-size: 3rem;
+    background: -webkit-linear-gradient(#e91e6f,#2196f3);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.clock::before{
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    background-color: #e91e6f;
+    border-radius: 50%;
+    z-index: 20;
+    box-shadow: 0 0 0 1px #e91e6f,
+    0 0 0 3px #fff;
+}
+.number{
+    position: absolute;
+    inset: 35px;
+    background-color: #152b4a;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px #152b4a66,
+    inset 5px 5px 10px rgb(161, 156, 156);
+    
+}
+.number span{
+    position: absolute;
+    inset: 5px;
+    color: #fff;
+    text-align: center;
+    font-size: 1.3rem;
+    transform: rotate(calc(90deg * var(--i)));
+}
+.number span b{
+    display: inline-block;
+    transform: rotate(calc(-90deg * var(--i)));
+}
+.number::before{
+    content: '';
+    position: absolute;
+    inset: 35px;
+    background: linear-gradient(#e91e6f,#2196f3);
+    border-radius: 50%;
+    animation: animate 2s linear infinite;
+}
+@keyframes animate{
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.number::after{
+    content: '';
+    position: absolute;
+    inset: 38px;
+    background: #152b4a;
+    border-radius: 50%;
+}
+.circle{
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+
+    z-index: 10;
+}
+.circle i{
+    position: absolute;
+    width: 3px;
+    height: 50%;
+    background-color: #fff;
+    transform-origin: bottom;
+    background-color: #e91e6f;
+}
+ #hr i{
+    transform: scaleY(0.3);
+    width: 4px;
+}
+#mm i{
+    transform: scaleY(0.45);
+}
+#sc i{
+    transform: scaleY(0.55);
+    width: 2px;
+    box-shadow: 0 30px 0 #e91e6f;
+
+}
+.digital{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #152b4a;
+    height: 150px;
+    width: 300px;
+    border-radius: 10px ;
+    top: 40px;
+   
+}
+.time{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #c9d5e0;
+    height: 100px;
+    width: 250px;
+  
+}
+.time span{
+    text-align: center;
+    font-size: 3rem;
+
+    
+}
+.dot{
+    color: #152b4a;
+    /* font-family: 'Poppins', sans-serif; */
+}
+
+#hour{
+    background: -webkit-linear-gradient(90deg,blue,white);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: 5rem;
+    font-family: 'Poppins', sans-serif;
+}
+#min{
+    background: -webkit-linear-gradient(90deg,orchid,white);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: 3.4rem;
+    font-family: 'Poppins', sans-serif;
+}
+#sec{
+    color:#fff;
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+}
+.digital::before{
+    content: '';
+    position: absolute;
+    background: linear-gradient(#e91e6f,#2196f3);
+    background-size: 150% 150%;
+    top: -5px ;
+    left: -5px;
+    bottom: -5px;
+    right: -5px;
+    z-index: -1;
+    border-radius: 10px;
+    filter: blur(25px);
+    animation: glow 5s ease infinite;
+}
+@keyframes glow {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 50% 100%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+    
+}
